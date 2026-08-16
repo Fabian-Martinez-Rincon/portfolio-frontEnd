@@ -1,4 +1,5 @@
 import { projects } from "@/lib/projects";
+import { ProjectPreview } from "./_components/project-preview";
 import { Reveal } from "./_components/reveal";
 
 const CONTACT_EMAIL = "fabianmartinezrincon.123@gmail.com";
@@ -154,40 +155,44 @@ export default function Home() {
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {projects.map((project, i) => (
               <Reveal key={project.id} delay={i * 70}>
-                <article className="group flex h-full flex-col rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-6 shadow-(--shadow) transition duration-300 hover:-translate-y-1 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
-                  <div className="flex items-start gap-3">
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-sm font-black text-white ${badgeGradients[i % badgeGradients.length]}`}
-                      aria-hidden="true"
-                    >
-                      {project.name.charAt(0)}
-                    </span>
-                    <div>
-                      <h3 className="text-lg font-bold leading-tight text-foreground">{project.name}</h3>
-                      <p className="mt-0.5 text-sm font-medium text-(--brand)">{project.tagline}</p>
-                    </div>
-                  </div>
+                <article className="group flex h-full flex-col overflow-hidden rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) shadow-(--shadow) transition duration-300 hover:-translate-y-1 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
+                  <ProjectPreview id={project.id} gradient={badgeGradients[i % badgeGradients.length]} />
 
-                  <p className="mt-4 text-sm text-(--ink-dim)">{project.description}</p>
-
-                  <ul className="mt-4 space-y-1.5">
-                    {project.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-2 text-sm text-(--ink-dim)">
-                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-(--brand)" aria-hidden="true" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-5 flex flex-wrap gap-1.5 border-t border-(--line) pt-4">
-                    {project.stack.map((tech) => (
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-start gap-3">
                       <span
-                        key={tech}
-                        className="rounded-full border border-(--line) px-2.5 py-0.5 text-xs font-medium text-(--ink-faint)"
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-sm font-black text-white ${badgeGradients[i % badgeGradients.length]}`}
+                        aria-hidden="true"
                       >
-                        {tech}
+                        {project.name.charAt(0)}
                       </span>
-                    ))}
+                      <div>
+                        <h3 className="text-lg font-bold leading-tight text-foreground">{project.name}</h3>
+                        <p className="mt-0.5 text-sm font-medium text-(--brand)">{project.tagline}</p>
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-sm text-(--ink-dim)">{project.description}</p>
+
+                    <ul className="mt-4 space-y-1.5">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight} className="flex gap-2 text-sm text-(--ink-dim)">
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-(--brand)" aria-hidden="true" />
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 flex flex-wrap gap-1.5 border-t border-(--line) pt-4">
+                      {project.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-(--line) px-2.5 py-0.5 text-xs font-medium text-(--ink-faint)"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </article>
               </Reveal>

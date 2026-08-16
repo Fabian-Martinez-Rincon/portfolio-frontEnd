@@ -2,6 +2,7 @@ import { projects } from "@/lib/projects";
 import { HeroVisual } from "./_components/hero-visual";
 import { ProjectPreview } from "./_components/project-preview";
 import { Reveal } from "./_components/reveal";
+import { TechIcon } from "./_components/tech-icon";
 
 function ArrowIcon({ className }: { className?: string }) {
   return (
@@ -40,21 +41,21 @@ const process = [
 const services = [
   {
     title: "Aplicaciones web a medida",
-    description: "Plataformas y herramientas internas construidas de cero, con foco en que sean rápidas y fáciles de mantener.",
+    description: "Nada de plantillas genéricas: plataformas construidas desde cero para tu operación, pensadas para ser rápidas hoy y fáciles de mantener dentro de un año.",
     icon: (
       <path d="M8 4 3 12l5 8M16 4l5 8-5 8M13 3l-2 18" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
     title: "Paneles y dashboards",
-    description: "Visualización de datos, métricas y seguimiento de progreso adaptados a cómo trabaja tu equipo.",
+    description: "Tus datos, ordenados para que se entiendan de un vistazo — métricas y progreso adaptados a cómo trabaja realmente tu equipo, no al revés.",
     icon: (
       <path d="M4 20V10m7 10V4m7 16v-7" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
   {
     title: "Integraciones con APIs",
-    description: "Pagos (Mercado Pago), login social, redes sociales y otros servicios de terceros conectados a tu app.",
+    description: "Pagos con Mercado Pago, login social, redes sociales y cualquier servicio de terceros, conectados a tu app sin fricción.",
     icon: (
       <path
         d="M9 15 15 9m-4-3 1.4-1.4a4 4 0 1 1 5.7 5.7L16 12m-8 0-1.4 1.4a4 4 0 1 0 5.7 5.7L13.7 18"
@@ -65,7 +66,7 @@ const services = [
   },
   {
     title: "Automatizaciones",
-    description: "Procesos repetitivos resueltos con scripts y bots que corren solos, sin intervención manual.",
+    description: "Ese trabajo repetitivo que nadie quiere hacer, resuelto una sola vez con un script o un bot que corre solo, para siempre.",
     icon: (
       <path
         d="M12 3v3m0 12v3m9-9h-3M6 12H3m14.5-6.5-2 2m-9 9-2 2m0-13 2 2m9 9 2 2M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
@@ -205,8 +206,9 @@ export default function Home() {
                       {project.stack.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full border border-(--line) px-2.5 py-0.5 text-xs font-medium text-(--ink-faint)"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-(--line) px-2.5 py-0.5 text-xs font-medium text-(--ink-faint)"
                         >
+                          <TechIcon name={tech} className="h-3 w-3 shrink-0" />
                           {tech}
                         </span>
                       ))}

@@ -13,7 +13,7 @@ export const projects: Project[] = [
     name: "Academia Fabo",
     tagline: "Plataforma educativa con editor de código real en el navegador",
     description:
-      "Plataforma de e-learning para materias de programación: teoría, ejercicios y evaluación automática, todo corriendo en vivo dentro del navegador con el mismo motor de VS Code (Monaco). Incluye login con Google y suscripción paga.",
+      "Un aula virtual donde el alumno no mira código: lo escribe y lo corre. Cursos completos de programación con el mismo motor de edición que usa VS Code y corrección automática de ejercicios, sostenido con un modelo de suscripción paga.",
     stack: ["Next.js", "TypeScript", "Monaco Editor", "Mercado Pago", "Google OAuth"],
     highlights: [
       "Editor de código real (Monaco) para varios lenguajes, corriendo ejercicios al instante",
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     name: "Gestor de Tareas",
     tagline: "Panel central para manejar varios proyectos a la vez",
     description:
-      "Herramienta interna para organizar tareas de todos mis proyectos en un solo tablero, con la posibilidad de arrancar y parar cada servidor de desarrollo y ver sus logs en vivo desde la misma pantalla.",
+      "La herramienta que uso todos los días para no perder el hilo entre proyectos: un solo tablero para organizar tareas, y la posibilidad de prender, apagar y ver los logs de cada servidor de desarrollo sin salir del navegador.",
     stack: ["Next.js", "TypeScript"],
     highlights: [
       "Tablero de tareas agrupado por proyecto, sin la fricción de un Kanban",
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     name: "Gimnasio Stats",
     tagline: "Seguimiento de entrenamientos y progreso físico",
     description:
-      "App para registrar entrenamientos, cardio, medidas corporales y asistencia al gimnasio, con gráficos que muestran la evolución a lo largo del tiempo.",
+      "Todo lo que pasa en el gimnasio, en un solo lugar: entrenamientos, cardio, medidas corporales y asistencia, con gráficos que muestran si el esfuerzo de hoy se refleja en el progreso de mañana.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     highlights: [
       "Registro de entrenamientos, cardio, medidas corporales y asistencia",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     name: "Inglés Flashcards",
     tagline: "Vocabulario con repetición espaciada y práctica de conversación",
     description:
-      "App para aprender inglés con flashcards basadas en el algoritmo de repetición espaciada SM-2, más un modo de práctica de conversación libre y ejercicios de gramática con contenido propio.",
+      "Vocabulario que se queda: flashcards con el algoritmo de repetición espaciada SM-2 para memorizar a largo plazo, sumado a un modo de conversación libre y ejercicios de gramática con contenido propio, no genérico.",
     stack: ["Next.js", "TypeScript", "SM-2 (spaced repetition)"],
     highlights: [
       "Repetición espaciada (SM-2) para memorizar vocabulario a largo plazo",
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     name: "Ventana 10/40",
     tagline: "Sitio informativo con datos reales de pueblos no alcanzados",
     description:
-      "Sitio para difundir información sobre pueblos no alcanzados dentro de la Ventana 10/40, con datos reales tomados de organizaciones como Joshua Project, Wycliffe y Open Doors.",
+      "Un sitio para conocer a los pueblos no alcanzados dentro de la Ventana 10/40, con datos reales — no genéricos — tomados de organizaciones especializadas como Joshua Project, Wycliffe y Open Doors.",
     stack: ["Next.js", "TypeScript"],
     highlights: ["Contenido alimentado con datos reales de fuentes públicas especializadas"],
   },
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     name: "Publicador de Redes",
     tagline: "Automatización de publicación en redes sociales",
     description:
-      "App para publicar contenido en YouTube, LinkedIn e Instagram desde un solo lugar, sin pasar por cada app oficial, incluyendo armado de reels con ffmpeg y estadísticas de cuentas.",
+      "Publicar en YouTube, LinkedIn e Instagram sin abrir tres apps distintas: un solo lugar para subir contenido, armar reels automáticamente con ffmpeg y ver las estadísticas de cada cuenta.",
     stack: ["Next.js", "TypeScript", "YouTube API", "Instagram Graph API", "ffmpeg"],
     highlights: [
       "Integración con YouTube Data API, LinkedIn e Instagram Graph API",

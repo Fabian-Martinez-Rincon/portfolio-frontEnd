@@ -1,6 +1,15 @@
 import { projects } from "@/lib/projects";
+import { HeroVisual } from "./_components/hero-visual";
 import { ProjectPreview } from "./_components/project-preview";
 import { Reveal } from "./_components/reveal";
+
+function ArrowIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" className={className} fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+      <path d="M4 10h12m0 0-5-5m5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 const CONTACT_EMAIL = "fabianmartinezrincon.123@gmail.com";
 
@@ -91,57 +100,66 @@ export default function Home() {
         />
 
         <div className="relative mx-auto w-full max-w-5xl px-4 py-20 lg:px-6 lg:py-28">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--bg-elevated) px-3 py-1 text-xs font-medium text-(--ink-dim)">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--success) opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-(--success)" />
-              </span>
-              Disponible para nuevos proyectos
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <h1 className="mt-5 max-w-2xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Construyo <span className="text-gradient">aplicaciones web a medida</span> para tu negocio
-            </h1>
-          </Reveal>
-
-          <Reveal delay={140}>
-            <p className="mt-5 max-w-xl text-lg text-(--ink-dim)">
-              Full-stack: desde la idea hasta una app en producción. Estos son proyectos reales que armé de punta a
-              punta — así trabajo.
-            </p>
-          </Reveal>
-
-          <Reveal delay={200}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#proyectos"
-                className="inline-flex items-center rounded-(--radius) bg-(--brand) px-5 py-2.5 text-sm font-semibold text-(--brand-foreground) shadow-(--shadow) transition hover:-translate-y-0.5 hover:bg-(--brand-strong) hover:shadow-(--shadow-lg)"
-              >
-                Ver proyectos
-              </a>
-              <a
-                href="#contacto"
-                className="inline-flex items-center rounded-(--radius) border border-(--line) px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-(--line-strong) hover:bg-(--bg-elevated)"
-              >
-                Contactarme
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={260}>
-            <dl className="mt-16 grid max-w-2xl grid-cols-3 gap-6 border-t border-(--line) pt-8">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd className="text-3xl font-extrabold tracking-tight text-foreground">{stat.value}</dd>
-                  <p className="mt-1 text-xs text-(--ink-faint)">{stat.label}</p>
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-10">
+            <div>
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--bg-elevated) px-3 py-1 text-xs font-medium text-(--ink-dim)">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-(--success) opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-(--success)" />
+                  </span>
+                  Disponible para nuevos proyectos
                 </div>
-              ))}
-            </dl>
-          </Reveal>
+              </Reveal>
+
+              <Reveal delay={80}>
+                <h1 className="mt-5 max-w-xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                  Construyo <span className="text-gradient">aplicaciones web a medida</span> para tu negocio
+                </h1>
+              </Reveal>
+
+              <Reveal delay={140}>
+                <p className="mt-5 max-w-lg text-lg text-(--ink-dim)">
+                  Full-stack: desde la idea hasta una app en producción. Estos son proyectos reales que armé de
+                  punta a punta — así trabajo.
+                </p>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href="#proyectos"
+                    className="group inline-flex items-center gap-1.5 rounded-(--radius) bg-(--brand) px-5 py-2.5 text-sm font-semibold text-(--brand-foreground) shadow-(--shadow) transition hover:-translate-y-0.5 hover:bg-(--brand-strong) hover:shadow-(--shadow-lg)"
+                  >
+                    Ver proyectos
+                    <ArrowIcon className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="#contacto"
+                    className="inline-flex items-center rounded-(--radius) border border-(--line) px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-(--line-strong) hover:bg-(--bg-elevated)"
+                  >
+                    Contactarme
+                  </a>
+                </div>
+              </Reveal>
+
+              <Reveal delay={260}>
+                <dl className="mt-16 grid max-w-lg grid-cols-3 divide-x divide-(--line) border-t border-(--line) pt-8">
+                  {stats.map((stat) => (
+                    <div key={stat.label} className="px-5 first:pl-0">
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd className="text-3xl font-extrabold tracking-tight text-foreground">{stat.value}</dd>
+                      <p className="mt-1 text-xs text-(--ink-faint)">{stat.label}</p>
+                    </div>
+                  ))}
+                </dl>
+              </Reveal>
+            </div>
+
+            <Reveal delay={220} className="hidden lg:block">
+              <HeroVisual />
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -208,14 +226,15 @@ export default function Home() {
             <p className="mt-2 max-w-xl text-(--ink-dim)">Un proceso simple, pensado para llegar a producción.</p>
           </Reveal>
 
-          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="relative mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3">
+            <div className="pointer-events-none absolute inset-x-6 top-6 hidden h-px bg-(--line) sm:block" aria-hidden="true" />
             {process.map((item, i) => (
               <Reveal key={item.step} delay={i * 90}>
                 <div className="relative">
-                  <span className="text-4xl font-black text-(--line-strong)" aria-hidden="true">
+                  <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-(--brand) to-(--accent) text-base font-extrabold text-white shadow-(--shadow)">
                     {item.step}
                   </span>
-                  <h3 className="mt-3 text-lg font-bold text-foreground">{item.title}</h3>
+                  <h3 className="mt-4 text-lg font-bold text-foreground">{item.title}</h3>
                   <p className="mt-2 text-sm text-(--ink-dim)">{item.description}</p>
                 </div>
               </Reveal>
@@ -234,17 +253,19 @@ export default function Home() {
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {services.map((service, i) => (
               <Reveal key={service.title} delay={i * 70}>
-                <div className="flex gap-4 rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-5 transition hover:border-(--line-strong)">
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-9 w-9 shrink-0 text-(--brand)"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.6}
-                    aria-hidden="true"
-                  >
-                    {service.icon}
-                  </svg>
+                <div className="group flex gap-4 rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-5 shadow-(--shadow) transition duration-300 hover:-translate-y-1 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-(--brand)/10 text-(--brand) transition duration-300 group-hover:bg-(--brand) group-hover:text-(--brand-foreground)">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.8}
+                      aria-hidden="true"
+                    >
+                      {service.icon}
+                    </svg>
+                  </span>
                   <div>
                     <h3 className="font-bold text-foreground">{service.title}</h3>
                     <p className="mt-1.5 text-sm text-(--ink-dim)">{service.description}</p>
@@ -264,7 +285,15 @@ export default function Home() {
                 className="pointer-events-none absolute -top-16 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-(--brand) opacity-[0.10] blur-3xl"
                 aria-hidden="true"
               />
-              <h2 className="relative text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
+              <span
+                className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-(--brand) to-(--accent) text-white shadow-(--shadow)"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8}>
+                  <path d="M4 6h16v12H4V6Zm0 0 8 7 8-7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+              <h2 className="relative mt-5 text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
                 ¿Tenés un proyecto en mente?
               </h2>
               <p className="relative mx-auto mt-2 max-w-md text-(--ink-dim)">
@@ -272,9 +301,10 @@ export default function Home() {
               </p>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="relative mt-6 inline-flex items-center rounded-(--radius) bg-(--brand) px-6 py-3 text-sm font-semibold text-(--brand-foreground) shadow-(--shadow) transition hover:-translate-y-0.5 hover:bg-(--brand-strong) hover:shadow-(--shadow-lg)"
+                className="group relative mt-6 inline-flex items-center gap-1.5 rounded-(--radius) bg-(--brand) px-6 py-3 text-sm font-semibold text-(--brand-foreground) shadow-(--shadow) transition hover:-translate-y-0.5 hover:bg-(--brand-strong) hover:shadow-(--shadow-lg)"
               >
                 Escribime a {CONTACT_EMAIL}
+                <ArrowIcon className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </a>
             </div>
           </Reveal>

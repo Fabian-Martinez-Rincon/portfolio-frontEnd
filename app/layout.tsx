@@ -102,7 +102,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </a>
             <nav className="ml-6 hidden items-center gap-6 text-sm font-medium text-(--ink-dim) sm:flex">
               {NAV_LINKS.map((link) => (
-                <a key={link.href} href={link.href} className="transition hover:text-foreground">
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="relative py-1 transition hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-(--brand) after:transition-all after:duration-300 hover:after:w-full"
+                >
                   {link.label}
                 </a>
               ))}

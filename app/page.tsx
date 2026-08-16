@@ -5,6 +5,7 @@ import { ProjectPreview } from "./_components/project-preview";
 import { Reveal } from "./_components/reveal";
 import { StarRating } from "./_components/star-rating";
 import { TechIcon } from "./_components/tech-icon";
+import { TiltCard } from "./_components/tilt-card";
 
 function ArrowIcon({ className }: { className?: string }) {
   return (
@@ -176,7 +177,8 @@ export default function Home() {
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {projects.map((project, i) => (
               <Reveal key={project.id} delay={i * 70}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) shadow-(--shadow) transition duration-300 hover:-translate-y-1 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
+                <TiltCard className="h-full">
+                <article className="group flex h-full flex-col overflow-hidden rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) shadow-(--shadow) transition-[border-color,box-shadow] duration-300 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
                   <ProjectPreview id={project.id} gradient={badgeGradients[i % badgeGradients.length]} />
 
                   <div className="flex flex-1 flex-col p-6">
@@ -214,6 +216,7 @@ export default function Home() {
                     </div>
                   </div>
                 </article>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -233,6 +236,7 @@ export default function Home() {
               .filter((t) => t.featured)
               .map((testimonial) => (
                 <Reveal key={testimonial.name}>
+                  <TiltCard>
                   <figure className="relative overflow-hidden rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-8 shadow-(--shadow) sm:p-10">
                     <div
                       className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-(--brand) opacity-[0.08] blur-3xl"
@@ -258,6 +262,7 @@ export default function Home() {
                       </div>
                     </figcaption>
                   </figure>
+                  </TiltCard>
                 </Reveal>
               ))}
 
@@ -266,6 +271,7 @@ export default function Home() {
                 .filter((t) => !t.featured)
                 .map((testimonial, i) => (
                   <Reveal key={testimonial.name} delay={i * 90}>
+                    <TiltCard className="h-full">
                     <figure className="flex h-full flex-col rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-6 shadow-(--shadow)">
                       <StarRating rating={testimonial.rating} />
                       <blockquote className="mt-3 flex-1 text-sm text-(--ink-dim)">{testimonial.quote}</blockquote>
@@ -282,6 +288,7 @@ export default function Home() {
                         </div>
                       </figcaption>
                     </figure>
+                    </TiltCard>
                   </Reveal>
                 ))}
             </div>
@@ -323,7 +330,8 @@ export default function Home() {
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {services.map((service, i) => (
               <Reveal key={service.title} delay={i * 70}>
-                <div className="group flex gap-4 rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-5 shadow-(--shadow) transition duration-300 hover:-translate-y-1 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
+                <TiltCard className="h-full">
+                <div className="group flex h-full gap-4 rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-5 shadow-(--shadow) transition-[border-color,box-shadow] duration-300 hover:border-(--line-strong) hover:shadow-(--shadow-lg)">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-(--brand)/10 text-(--brand) transition duration-300 group-hover:bg-(--brand) group-hover:text-(--brand-foreground)">
                     <svg
                       viewBox="0 0 24 24"
@@ -341,6 +349,7 @@ export default function Home() {
                     <p className="mt-1.5 text-sm text-(--ink-dim)">{service.description}</p>
                   </div>
                 </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>

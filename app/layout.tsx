@@ -68,6 +68,7 @@ const THEME_INIT_SCRIPT = `
 
 const NAV_LINKS = [
   { href: "#proyectos", label: "Proyectos" },
+  { href: "#testimonios", label: "Testimonios" },
   { href: "#como-trabajo", label: "Cómo trabajo" },
   { href: "#servicios", label: "Servicios" },
   { href: "#contacto", label: "Contacto" },

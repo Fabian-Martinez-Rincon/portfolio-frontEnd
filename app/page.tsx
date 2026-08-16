@@ -1,7 +1,9 @@
 import { projects } from "@/lib/projects";
+import { testimonials } from "@/lib/testimonials";
 import { HeroVisual } from "./_components/hero-visual";
 import { ProjectPreview } from "./_components/project-preview";
 import { Reveal } from "./_components/reveal";
+import { StarRating } from "./_components/star-rating";
 import { TechIcon } from "./_components/tech-icon";
 
 function ArrowIcon({ className }: { className?: string }) {
@@ -178,20 +180,17 @@ export default function Home() {
                   <ProjectPreview id={project.id} gradient={badgeGradients[i % badgeGradients.length]} />
 
                   <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-start gap-3">
-                      <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-sm font-black text-white ${badgeGradients[i % badgeGradients.length]}`}
-                        aria-hidden="true"
-                      >
-                        {project.name.charAt(0)}
-                      </span>
-                      <div>
-                        <h3 className="text-lg font-bold leading-tight text-foreground">{project.name}</h3>
-                        <p className="mt-0.5 text-sm font-medium text-(--brand)">{project.tagline}</p>
-                      </div>
-                    </div>
+                    <h3 className="text-lg font-bold leading-tight text-foreground">{project.name}</h3>
+                    <p className="mt-0.5 text-sm font-medium text-(--brand)">{project.tagline}</p>
 
                     <p className="mt-4 text-sm text-(--ink-dim)">{project.description}</p>
+
+                    {project.metric ? (
+                      <div className="mt-4 inline-flex w-fit items-baseline gap-1.5 rounded-lg bg-(--brand)/10 px-3 py-1.5">
+                        <span className="text-lg font-extrabold leading-none text-(--brand)">{project.metric.value}</span>
+                        <span className="text-xs font-medium text-(--ink-dim)">{project.metric.label}</span>
+                      </div>
+                    ) : null}
 
                     <ul className="mt-4 space-y-1.5">
                       {project.highlights.map((highlight) => (
@@ -217,6 +216,75 @@ export default function Home() {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ⚠️ PLACEHOLDER: testimonios inventados para previsualizar el diseño. Ver lib/testimonials.ts */}
+      <section id="testimonios" className="py-16 lg:py-24">
+        <div className="mx-auto w-full max-w-5xl px-4 lg:px-6">
+          <Reveal>
+            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">Lo que dicen</h2>
+            <p className="mt-2 max-w-xl text-(--ink-dim)">Clientes que confiaron el proyecto de punta a punta.</p>
+          </Reveal>
+
+          <div className="mt-10 space-y-5">
+            {testimonials
+              .filter((t) => t.featured)
+              .map((testimonial) => (
+                <Reveal key={testimonial.name}>
+                  <figure className="relative overflow-hidden rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-8 shadow-(--shadow) sm:p-10">
+                    <div
+                      className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-(--brand) opacity-[0.08] blur-3xl"
+                      aria-hidden="true"
+                    />
+                    <svg viewBox="0 0 24 24" className="relative h-8 w-8 text-(--brand)/40" fill="currentColor" aria-hidden="true">
+                      <path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6.2C6.6 9.5 8 8 10 7.6V5C8.2 5.2 7 5.9 7 7Zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-2.8c.4-1.5 1.8-3 3.8-3.4V5c-1.8.2-3 .9-3 2Z" />
+                    </svg>
+                    <StarRating rating={testimonial.rating} className="relative mt-4" />
+                    <blockquote className="relative mt-4 max-w-2xl text-lg font-medium text-foreground sm:text-xl">
+                      {testimonial.quote}
+                    </blockquote>
+                    <figcaption className="relative mt-6 flex items-center gap-3">
+                      <span
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-sm font-black text-white from-blue-500 to-violet-500"
+                        aria-hidden="true"
+                      >
+                        {testimonial.name.charAt(0)}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                        <p className="text-xs text-(--ink-faint)">{testimonial.role}</p>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {testimonials
+                .filter((t) => !t.featured)
+                .map((testimonial, i) => (
+                  <Reveal key={testimonial.name} delay={i * 90}>
+                    <figure className="flex h-full flex-col rounded-(--radius-lg) border border-(--line) bg-(--bg-elevated) p-6 shadow-(--shadow)">
+                      <StarRating rating={testimonial.rating} />
+                      <blockquote className="mt-3 flex-1 text-sm text-(--ink-dim)">{testimonial.quote}</blockquote>
+                      <figcaption className="mt-5 flex items-center gap-3 border-t border-(--line) pt-4">
+                        <span
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-xs font-black text-white ${badgeGradients[(i + 1) % badgeGradients.length]}`}
+                          aria-hidden="true"
+                        >
+                          {testimonial.name.charAt(0)}
+                        </span>
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                          <p className="text-xs text-(--ink-faint)">{testimonial.role}</p>
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+            </div>
           </div>
         </div>
       </section>

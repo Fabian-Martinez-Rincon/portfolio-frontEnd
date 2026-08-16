@@ -5,6 +5,8 @@ export type Project = {
   description: string;
   stack: string[];
   highlights: string[];
+  /** ⚠️ PLACEHOLDER — número de ejemplo para previsualizar el diseño. No es un dato real, reemplazar antes de publicar. */
+  metric?: { value: string; label: string };
 };
 
 export const projects: Project[] = [
@@ -20,6 +22,7 @@ export const projects: Project[] = [
       "7 materias completas con contenido propio y ejecución automática de código",
       "Login con Google + suscripción mensual/trimestral vía Mercado Pago",
     ],
+    metric: { value: "1.200+", label: "alumnos activos" }, // PLACEHOLDER, dato inventado
   },
   {
     id: "gestor-tareas",
@@ -32,6 +35,7 @@ export const projects: Project[] = [
       "Tablero de tareas agrupado por proyecto, sin la fricción de un Kanban",
       "Arranque/parada de servidores de desarrollo con logs en tiempo real",
     ],
+    metric: { value: "35 hs/mes", label: "ahorradas en coordinación" }, // PLACEHOLDER, dato inventado
   },
   {
     id: "gimnasio-stats",
@@ -44,6 +48,7 @@ export const projects: Project[] = [
       "Registro de entrenamientos, cardio, medidas corporales y asistencia",
       "Gráficos de progreso y modo claro/oscuro",
     ],
+    metric: { value: "4.800+", label: "entrenamientos registrados" }, // PLACEHOLDER, dato inventado
   },
   {
     id: "ingles-flashcards",
@@ -77,5 +82,6 @@ export const projects: Project[] = [
       "Integración con YouTube Data API, LinkedIn e Instagram Graph API",
       "Armado automático de reels (video + audio) con ffmpeg",
     ],
+    metric: { value: "180+", label: "publicaciones automatizadas/mes" }, // PLACEHOLDER, dato inventado
   },
 ];

@@ -26,3 +26,6 @@ next-env.d.ts
 
 # stray scratchpad artifact
 UsersFabianAppDataLocalTempclaudec--Users-Fabian-Desktop-FABO-CLAUDEc7086ead-00ee-4bfa-a0bf-ae3a6ba47eedscratchpad/
+
+# Claude Code session state
+.claude/

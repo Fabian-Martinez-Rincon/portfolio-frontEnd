@@ -5,7 +5,7 @@ export function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-md">
       <div
-        className="absolute inset-0 -z-10 rounded-(--radius-lg) bg-gradient-to-br from-(--brand) to-(--accent) opacity-20 blur-3xl"
+        className="absolute inset-0 -z-10 rounded-(--radius-lg) bg-(--brand) opacity-20 blur-3xl"
         aria-hidden="true"
       />
 
@@ -22,9 +22,7 @@ export function HeroVisual() {
             {SIDEBAR_ICONS.map((active, i) => (
               <span
                 key={i}
-                className={`h-6 w-6 rounded-md ${
-                  active ? "bg-gradient-to-br from-(--brand) to-(--accent)" : "bg-(--bg-sunken)"
-                }`}
+                className={`h-6 w-6 rounded-md ${active ? "bg-(--brand)" : "bg-(--bg-sunken)"}`}
               />
             ))}
           </div>
@@ -51,11 +49,7 @@ export function HeroVisual() {
                 <span
                   key={i}
                   style={{ height: `${h}%` }}
-                  className={`flex-1 rounded-t-sm ${
-                    i === BARS.length - 1
-                      ? "bg-gradient-to-t from-(--brand) to-(--accent)"
-                      : "bg-(--line-strong)"
-                  }`}
+                  className={`flex-1 rounded-t-sm ${i === BARS.length - 1 ? "bg-(--brand)" : "bg-(--line-strong)"}`}
                 />
               ))}
             </div>
@@ -63,19 +57,19 @@ export function HeroVisual() {
         </div>
       </div>
 
-      <div className="animate-float-slow absolute -top-5 -right-5 hidden items-center gap-2 rounded-full border border-(--line) bg-(--bg-elevated) px-3 py-2 shadow-(--shadow-lg) sm:flex">
-        <span className="h-2 w-2 rounded-full bg-(--success)" aria-hidden="true" />
-        <span className="text-xs font-semibold text-foreground">TypeScript</span>
+      <div className="animate-float-slow absolute -top-5 -right-5 hidden items-center gap-2 rounded-(--radius) border border-(--line) bg-(--bg-elevated) px-3 py-2 shadow-(--shadow-lg) sm:flex">
+        <span className="h-2 w-2 bg-(--brand)" aria-hidden="true" />
+        <span className="font-mono text-xs font-semibold text-foreground">TypeScript</span>
       </div>
 
-      <div className="animate-float absolute -bottom-5 -left-5 hidden items-center gap-2 rounded-full border border-(--line) bg-(--bg-elevated) px-3 py-2 shadow-(--shadow-lg) sm:flex">
+      <div className="animate-float absolute -bottom-5 -left-5 hidden items-center gap-2 rounded-(--radius) border border-(--line) bg-(--bg-elevated) px-3 py-2 shadow-(--shadow-lg) sm:flex">
         <span
-          className="flex h-4 w-4 items-center justify-center rounded-full bg-foreground text-[8px] font-black text-background"
+          className="flex h-4 w-4 items-center justify-center rounded-sm bg-foreground text-[8px] font-black text-background"
           aria-hidden="true"
         >
           N
         </span>
-        <span className="text-xs font-semibold text-foreground">Next.js</span>
+        <span className="font-mono text-xs font-semibold text-foreground">Next.js</span>
       </div>
     </div>
   );

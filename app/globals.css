@@ -9,10 +9,10 @@
   --ink-faint: hsl(240 4% 50%);
   --line: hsl(240 5.9% 88%);
   --line-strong: hsl(240 5.9% 78%);
-  --brand: hsl(221 97% 53%);
-  --brand-strong: hsl(221 90% 40%);
+  --brand: hsl(158 64% 30%);
+  --brand-strong: hsl(158 70% 22%);
   --brand-foreground: hsl(0 0% 100%);
-  --accent: hsl(266 85% 58%);
+  --accent: hsl(38 92% 46%);
   --danger: hsl(0 72.22% 50.59%);
   --danger-bg: hsl(0 72% 95%);
   --success: #2f7a4f;
@@ -20,12 +20,13 @@
   --gold: #a8710a;
   --gold-bg: #fbf0da;
 
-  --radius: 0.6rem;
-  --radius-lg: 1rem;
+  --radius: 0.35rem;
+  --radius-lg: 0.55rem;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 24px -12px rgba(0, 0, 0, 0.16);
   --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.06), 0 24px 48px -16px rgba(0, 0, 0, 0.2);
-  --font-body: var(--font-inter), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+  --font-heading: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-plex-sans), "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
   --grid-line: rgba(15, 23, 42, 0.05);
   color-scheme: light;
 }
@@ -39,10 +40,10 @@
   --ink-faint: hsl(240 5% 55%);
   --line: hsl(240 6% 24%);
   --line-strong: hsl(240 6% 34%);
-  --brand: hsl(221 95% 68%);
-  --brand-strong: hsl(221 95% 80%);
-  --brand-foreground: hsl(221 45% 12%);
-  --accent: hsl(266 90% 74%);
+  --brand: hsl(152 55% 52%);
+  --brand-strong: hsl(152 60% 65%);
+  --brand-foreground: hsl(152 45% 8%);
+  --accent: hsl(38 95% 58%);
   --danger: hsl(0 90% 75%);
   --danger-bg: hsl(0 40% 14%);
   --success: #7fe0ac;
@@ -59,6 +60,7 @@
   --color-background: var(--bg);
   --color-foreground: var(--ink);
   --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
 }
 
@@ -114,11 +116,13 @@ body {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%);
 }
 
-.text-gradient {
-  background: linear-gradient(100deg, var(--brand), var(--accent) 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.text-highlight {
+  background: var(--brand);
+  color: var(--brand-foreground);
+  padding: 0.02em 0.28em;
+  border-radius: 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 @keyframes fade-up {

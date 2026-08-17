@@ -14,7 +14,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "linear-gradient(135deg, #0b1220 0%, #151033 60%, #1c1035 100%)",
+          background: "linear-gradient(135deg, #0a0f0d 0%, #0f1f17 55%, #14261a 100%)",
           color: "white",
           fontFamily: "sans-serif",
         }}
@@ -25,8 +25,8 @@ export default async function Image() {
               display: "flex",
               width: 52,
               height: 52,
-              borderRadius: 14,
-              background: "linear-gradient(135deg, #2f6bf3, #7c3aed)",
+              borderRadius: 8,
+              background: "#0f9d58",
             }}
           />
           <div style={{ fontSize: 34, fontWeight: 800, letterSpacing: -1 }}>Fabo.</div>
@@ -36,7 +36,7 @@ export default async function Image() {
           <div style={{ fontSize: 62, fontWeight: 800, lineHeight: 1.1, letterSpacing: -2 }}>
             Construyo aplicaciones web a medida para tu negocio
           </div>
-          <div style={{ fontSize: 28, color: "#b6bfd9" }}>
+          <div style={{ fontSize: 28, color: "#a8bdae" }}>
             Full-stack · Next.js · Integraciones de pagos y APIs · Automatizaciones
           </div>
         </div>

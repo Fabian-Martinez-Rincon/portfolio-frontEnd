@@ -14,7 +14,7 @@ export function HeroVisual() {
           <span className="h-2.5 w-2.5 rounded-full bg-(--danger)/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-(--gold)/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-(--success)/70" />
-          <span className="ml-3 h-5 flex-1 rounded-md bg-(--bg-sunken)" />
+          <span className="ml-3 h-5 flex-1 rounded-md bg-(--line)" />
         </div>
 
         <div className="flex gap-4 p-5">
@@ -22,7 +22,7 @@ export function HeroVisual() {
             {SIDEBAR_ICONS.map((active, i) => (
               <span
                 key={i}
-                className={`h-6 w-6 rounded-md ${active ? "bg-(--brand)" : "bg-(--bg-sunken)"}`}
+                className={`h-6 w-6 rounded-md ${active ? "bg-(--brand)" : "bg-(--line)"}`}
               />
             ))}
           </div>
@@ -38,7 +38,7 @@ export function HeroVisual() {
                 <span
                   key={i}
                   className={`h-10 rounded-md border border-(--line) ${
-                    i === 1 ? "bg-(--brand)/10" : "bg-(--bg-sunken)"
+                    i === 1 ? "bg-(--brand)/10" : "bg-(--line)"
                   }`}
                 />
               ))}
